@@ -16,6 +16,8 @@ class SpiderSpider(scrapy.Spider):
         
         item = ZhaopinItem()
 
+        item['url'] = response.url
+
         node = "//div[@class='top-txt']"
         xpath2item(f"{node}/span[contains(@class, 'title')]/text()", 'position')
         xpath2item(f"{node}/span[@class='salary']/text()", 'salary')

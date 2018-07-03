@@ -9,6 +9,7 @@ import scrapy
 
 
 class ZhaopinItem(scrapy.Item):
+    url = scrapy.Field()
     position = scrapy.Field()
     salary = scrapy.Field()
     area = scrapy.Field()
