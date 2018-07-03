@@ -9,7 +9,7 @@ from pymongo import MongoClient
 class ZhaopinPipeline(object):
     def __init__(self):
         client=MongoClient('192.168.77.130')
-        collection = client.db.zhaopin
+        self.collection = client.db.zhaopin
 
     def process_item(self, item, spider):
         self.collection.insert(dict(item))

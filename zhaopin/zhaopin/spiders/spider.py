@@ -18,7 +18,7 @@ class SpiderSpider(scrapy.Spider):
 
         node = "//div[@class='top-txt']"
         xpath2item(f"{node}/span[contains(@class, 'title')]/text()", 'position')
-        xpath2item(f"{node}/span[@class='salary']", 'salary')
+        xpath2item(f"{node}/span[@class='salary']/text()", 'salary')
 
         node = "//ul[@class='list-left left']"
         xpath2item(f"{node}//span[@class='area']/../text()", 'area')
@@ -38,4 +38,6 @@ class SpiderSpider(scrapy.Spider):
         xpath2item(f"{node}/p[contains(text(), '规模')]/text()", 'co_scale')
         xpath2item(f"{node}/p[contains(text(), '类型')]/text()", 'co_type')
         xpath2item(f"{node}/p[contains(text(), '工作地点')]/text()", 'address')
+
+        yield item
 
